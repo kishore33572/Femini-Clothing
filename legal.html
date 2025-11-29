@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal & Policies - FEMN.</title>
+    <style>
+        /* --- 1. CORE AESTHETICS --- */
+        :root {
+            --bg-color: #050505;
+            --text-color: #e0e0e0;
+            --accent-color: #d4af37; /* Muted Gold */
+            --cursor-size: 20px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* --- 2. GRAIN TEXTURE OVERLAY --- */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* --- 3. CUSTOM CURSOR --- */
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 5px;
+            height: 5px;
+            background-color: white;
+        }
+
+        .cursor-outline {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        /* Cursor Hover State */
+        body.hovering .cursor-outline {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: transparent;
+        }
+
+        /* --- 4. LAYOUT GRID --- */
+        .page-wrapper {
+            display: grid;
+            grid-template-columns: 250px 1fr; /* Sidebar + Content */
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            gap: 60px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .page-wrapper {
+                grid-template-columns: 1fr;
+                padding: 80px 20px;
+            }
+            .sidebar {
+                display: none; /* Hide sticky sidebar on mobile */
+            }
+        }
+
+        /* --- 5. STICKY SIDEBAR NAVIGATION --- */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .nav-link {
+            display: block;
+            text-decoration: none;
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            transition: color 0.4s ease, transform 0.4s ease;
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 1px;
+            background-color: var(--accent-color);
+            transition: width 0.4s ease;
+        }
+
+        .nav-link.active {
+            color: #fff;
+            transform: translateX(15px);
+        }
+
+        .nav-link.active::before {
+            width: 10px;
+        }
+
+        /* --- 6. MAIN CONTENT TYPOGRAPHY --- */
+        .content h1 {
+            font-family: 'Times New Roman', serif;
+            font-size: 8vw; /* Massive responsive title */
+            font-weight: 100;
+            margin: 0 0 100px 0;
+            line-height: 0.9;
+            opacity: 0; /* Initial state for animation */
+            animation: fadeInSlow 1.5s ease-out forwards;
+        }
+
+        .legal-section {
+            margin-bottom: 150px;
+            opacity: 0; /* Hidden initially for scroll reveal */
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .legal-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .legal-section h2 {
+            font-family: 'Times New Roman', serif;
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .legal-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #fcf8ef;
+            max-width: 700px;
+            margin-bottom: 20px;
+        }
+
+        /* Header Navigation */
+        nav.top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            z-index: 100;
+            mix-blend-mode: difference; /* Ensures visible on light/dark */
+        }
+
+        .logo {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            font-size: 40px;
+            text-decoration: none;
+            color: #dbbd14;
+        }
+
+        .close-btn {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInSlow {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="top-nav">
+        <a href="index.html" class="logo hover-trigger">FEMN.</a>
+        <a href="index.html" class="close-btn hover-trigger">CLOSE [X]</a>
+    </nav>
+
+    <div class="page-wrapper">
+        
+        <aside class="sidebar">
+            <a href="#terms" class="nav-link hover-trigger active">01. Terms</a>
+            <a href="#privacy" class="nav-link hover-trigger">02. Privacy</a>
+            <a href="#returns" class="nav-link hover-trigger">03. Returns</a>
+            <a href="#shipping" class="nav-link hover-trigger">04. Shipping</a>
+        </aside>
+
+        <main class="content">
+            <h1>Legal & <br> Policies</h1>
+
+            <div id="terms" class="legal-section">
+                <h2>01. Terms of Service</h2>
+                <p>Welcome to FEMN. These terms and conditions outline the rules and regulations for the use of our Website. By accessing this website we assume you accept these terms and conditions.</p>
+                <p>The "Archive" collection consists of vintage and curated pieces. Slight imperfections are to be expected and are considered part of the character of the garment.</p>
+            </div>
+
+            <div id="privacy" class="legal-section">
+                <h2>02. Privacy Policy</h2>
+                <p>Your privacy is of the utmost importance to us. We only collect the information necessary to process your order and improve your experience. We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties.</p>
+                <p>This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.</p>
+            </div>
+
+            <div id="returns" class="legal-section">
+                <h2>03. Returns & Exchange</h2>
+                <p>Due to the exclusive nature of our drops, all sales for "The Archive" items are final. Please review measurements and descriptions carefully before purchasing.</p>
+                <p>For our standard collection, returns are accepted within 14 days of receipt, provided items are unworn with original tags attached.</p>
+            </div>
+
+            <div id="shipping" class="legal-section">
+                <h2>04. Global Shipping</h2>
+                <p>FEMN. ships worldwide via DHL Express. All orders are processed within 48 hours. Tracking information will be sent to your email immediately upon dispatch.</p>
+                <p>International duties and taxes are determined by the shipping address entered at checkout. If taxes and duties are included in the price of your order this will be mentioned at checkout.</p>
+            </div>
+            
+            <div style="height: 200px;"></div> </main>
+    </div>
+
+    <script>
+        // --- 1. CUSTOM CURSOR LOGIC ---
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Outline follows with slight delay (animation in CSS)
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // Add 'hovering' class when over links
+        const triggers = document.querySelectorAll('.hover-trigger');
+        triggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            trigger.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+
+
+        // --- 2. SCROLL REVEAL ANIMATION ---
+        const observerOptions = {
+            threshold: 0.1 // Trigger when 10% of item is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.legal-section').forEach(section => {
+            observer.observe(section);
+        });
+
+
+        // --- 3. ACTIVE LINK TRACKING ---
+        const sections = document.querySelectorAll('.legal-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
