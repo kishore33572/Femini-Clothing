@@ -12,7 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="llo.jpeg">
-    
+
 
 
 
@@ -30,7 +30,8 @@
             <a href="#">Editorial</a>
             <a href="#">Shop</a>
             <a href="#collection">Archive</a>
-            <a href="#">Cart (0)</a>
+            <a href="#" id="cart-link">Cart (0)</a>
+
         </div>
     </nav>
 
@@ -118,7 +119,10 @@
                 <h2>The Shirt | Tie Combo</h2>
                 <div class="modal-price">$170.00</div>
                 <p class="modal-desc">
-                    A crisp, high-quality cotton poplin shirt with a perfect oversized fit is a staple investment piece.Crisp striped poplin shirt paired with a contrasting burgundy silk tie. This look redefines traditional office wear with a playful, androgynous twist. Best worn tucked into baggy trousers for a relaxed academic aesthetic.
+                    A crisp, high-quality cotton poplin shirt with a perfect oversized fit is a staple investment
+                    piece.Crisp striped poplin shirt paired with a contrasting burgundy silk tie. This look redefines
+                    traditional office wear with a playful, androgynous twist. Best worn tucked into baggy trousers for
+                    a relaxed academic aesthetic.
                 </p>
                 <a href="#" class="modal-buy-btn">Add to Cart</a>
             </div>
@@ -138,7 +142,9 @@
                 <h2>The Structured Trench</h2>
                 <div class="modal-price">$275.00</div>
                 <p class="modal-desc">
-                    While it has a high-fashion silhouette, trench coats are often cotton-gabardine blends which are cheaper than wool. The price reflects the unique cut and tailoring rather than expensive raw materials
+                    While it has a high-fashion silhouette, trench coats are often cotton-gabardine blends which are
+                    cheaper than wool. The price reflects the unique cut and tailoring rather than expensive raw
+                    materials
                 </p>
                 <a href="#" class="modal-buy-btn">Add to Cart</a>
             </div>
@@ -157,7 +163,9 @@
                 <h2>The Maroon Skirt Suit</h2>
                 <div class="modal-price">$350.00</div>
                 <p class="modal-desc">
-                    Structured burgundy wool blend finished with polished gold crest buttons. This coordinated jacket and mini skirt set delivers a preppy look with a luxurious finish. Perfect for transitioning from polished daywear to upscale outings.
+                    Structured burgundy wool blend finished with polished gold crest buttons. This coordinated jacket
+                    and mini skirt set delivers a preppy look with a luxurious finish. Perfect for transitioning from
+                    polished daywear to upscale outings.
                 </p>
                 <a href="#" class="modal-buy-btn">Add to Cart</a>
             </div>
@@ -177,7 +185,9 @@
                 <h2>The Grey Tracksuit</h2>
                 <div class="modal-price">$160.00</div>
                 <p class="modal-desc">
-                    High-performance nylon set detailed with reflective piping contours. This Gorpcore-inspired tracksuit blends 90s streetwear nostalgia with modern urban utility. Designed for effortless movement and a bold street style statement.
+                    High-performance nylon set detailed with reflective piping contours. This Gorpcore-inspired
+                    tracksuit blends 90s streetwear nostalgia with modern urban utility. Designed for effortless
+                    movement and a bold street style statement.
                 </p>
                 <a href="#" class="modal-buy-btn">Add to Cart</a>
             </div>
@@ -253,7 +263,9 @@
                 <h2>The Bow-Front Blouse</h2>
                 <div class="modal-price">$185.00</div>
                 <p class="modal-desc">
-                   Chocolate brown fabric featuring romantic, decorative bow closures. The structural puff sleeves create a soft, feminine, and vintage-inspired silhouette. An elegant choice for elevating dinner dates or evening events.
+                    Chocolate brown fabric featuring romantic, decorative bow closures. The structural puff sleeves
+                    create a soft, feminine, and vintage-inspired silhouette. An elegant choice for elevating dinner
+                    dates or evening events.
                 </p>
                 <a href="#" class="modal-buy-btn">Add to Cart</a>
             </div>
@@ -272,7 +284,9 @@
                 <h2>The Cinched Wool Coat</h2>
                 <div class="modal-price">$395.00</div>
                 <p class="modal-desc">
-                    Luxe camel wool blend featuring a minimalist, oversized cut. The unique leather cord belt adds a modern, architectural edge to a classic silhouette. Ideally styled over monochrome layers for sophisticated winter warmth.
+                    Luxe camel wool blend featuring a minimalist, oversized cut. The unique leather cord belt adds a
+                    modern, architectural edge to a classic silhouette. Ideally styled over monochrome layers for
+                    sophisticated winter warmth.
                 </p>
                 <a href="#" class="modal-buy-btn">Add to Cart</a>
             </div>
@@ -290,7 +304,9 @@
                 <h2>The Full Skirt Silhouette</h2>
                 <div class="modal-price">$220.00</div>
                 <p class="modal-desc">
-                   Voluminous pleated midi skirt crafted from sturdy, structured cotton. The dramatic A-line flare offers beautiful movement and timeless grace. Pair with a fitted bodysuit for a striking dark academia silhouette.
+                    Voluminous pleated midi skirt crafted from sturdy, structured cotton. The dramatic A-line flare
+                    offers beautiful movement and timeless grace. Pair with a fitted bodysuit for a striking dark
+                    academia silhouette.
                 </p>
                 <a href="#" class="modal-buy-btn">Add to Cart</a>
             </div>
@@ -308,7 +324,9 @@
                 <h2>The Distressed Moto Jacket</h2>
                 <div class="modal-price">$498.00</div>
                 <p class="modal-desc">
-                    Heavily washed leather with rugged zipper hardware and buckle accents. This oversized biker jacket channels authentic vintage grunge with a lived-in feel. Built to add instant toughness to any casual denim look.
+                    Heavily washed leather with rugged zipper hardware and buckle accents. This oversized biker jacket
+                    channels authentic vintage grunge with a lived-in feel. Built to add instant toughness to any casual
+                    denim look.
                 </p>
                 <a href="#" class="modal-buy-btn">Add to Cart</a>
             </div>
@@ -324,6 +342,176 @@
             <a href="legal.html">Legal</a>
         </div>
     </footer>
+    <div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+        <h2>Your Selection</h2>
+        <button class="close-cart" id="close-cart">&times;</button>
+    </div>
+    
+    <div class="cart-items" id="cart-items-container">
+        <p style="text-align:center; margin-top: 2rem; color: #999;">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="cart-total">
+            <span>Tax (8%)</span>
+            <span id="cart-tax">$0.00</span>
+        </div>
+        <div class="cart-total final">
+            <span>Total</span>
+            <span id="cart-total">$0.00</span>
+        </div>
+        <button class="checkout-btn" onclick="alert('Proceeding to checkout...')">Checkout</button>
+    </div>
+</div>
+    <script>
+    // --- STATE MANAGEMENT ---
+    let cart = JSON.parse(localStorage.getItem('femnCart')) || [];
+    const TAX_RATE = 0.08;
+
+    // --- DOM ELEMENTS ---
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const closeCartBtn = document.getElementById('close-cart');
+    const cartItemsContainer = document.getElementById('cart-items-container');
+    const cartLink = document.getElementById('cart-link');
+
+    // --- FUNCTIONS ---
+
+    // 1. Toggle Cart Visibility
+    function toggleCart(show) {
+        if (show) {
+            cartDrawer.classList.add('open');
+            cartOverlay.classList.add('open');
+            renderCartItems(); // Re-render when opening
+        } else {
+            cartDrawer.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        }
+    }
+
+    // 2. Add Item to Cart
+    function addToCart(productName, priceString, imageSrc) {
+        const cleanPrice = parseFloat(priceString.replace(/[$,]/g, ''));
+        
+        const item = {
+            id: Date.now(), // Unique ID for removal
+            name: productName,
+            price: cleanPrice,
+            image: imageSrc
+        };
+
+        cart.push(item);
+        saveCart();
+        updateCartCount();
+        
+        // Auto-open cart to show the user what happened
+        toggleCart(true); 
+    }
+
+    // 3. Remove Item
+    function removeItem(id) {
+        cart = cart.filter(item => item.id !== id);
+        saveCart();
+        renderCartItems();
+        updateCartCount();
+    }
+
+    // 4. Save to Local Storage
+    function saveCart() {
+        localStorage.setItem('femnCart', JSON.stringify(cart));
+    }
+
+    // 5. Update Nav Count
+    function updateCartCount() {
+        if (cartLink) {
+            cartLink.innerText = `Cart (${cart.length})`;
+        }
+    }
+
+    // 6. Render Items & Calculate Totals
+    function renderCartItems() {
+        cartItemsContainer.innerHTML = ''; // Clear current list
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p style="text-align:center; margin-top: 2rem; color: #999; font-family:Manrope;">Your cart is empty.</p>';
+            updateTotals(0);
+            return;
+        }
+
+        let subtotal = 0;
+
+        cart.forEach(item => {
+            subtotal += item.price;
+
+            const itemEl = document.createElement('div');
+            itemEl.classList.add('cart-item');
+            itemEl.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div class="item-details">
+                    <div>
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-price">$${item.price.toFixed(2)}</div>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${item.id})">Remove</button>
+                </div>
+            `;
+            cartItemsContainer.appendChild(itemEl);
+        });
+
+        updateTotals(subtotal);
+    }
+
+    function updateTotals(subtotal) {
+        const tax = subtotal * TAX_RATE;
+        const total = subtotal + tax;
+
+        document.getElementById('cart-subtotal').innerText = `$${subtotal.toFixed(2)}`;
+        document.getElementById('cart-tax').innerText = `$${tax.toFixed(2)}`;
+        document.getElementById('cart-total').innerText = `$${total.toFixed(2)}`;
+    }
+
+    // --- EVENT LISTENERS ---
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartCount();
+
+        // Open Cart via Nav Link
+        if (cartLink) {
+            cartLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleCart(true);
+            });
+        }
+
+        // Close Cart
+        closeCartBtn.addEventListener('click', () => toggleCart(false));
+        cartOverlay.addEventListener('click', () => toggleCart(false));
+
+        // Add to Cart Logic (capturing Image now too)
+        const buttons = document.querySelectorAll('.modal-buy-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const container = btn.closest('.modal-content'); // Changed to modal-content to find image easier
+                
+                if (container) {
+                    const title = container.querySelector('h2').innerText;
+                    const price = container.querySelector('.modal-price').innerText;
+                    // Find the image in the modal-image div
+                    const img = container.querySelector('.modal-image img').src; 
+
+                    addToCart(title, price, img);
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>
